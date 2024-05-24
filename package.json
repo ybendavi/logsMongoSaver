@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha test/test.mjs > test_output.log 2>&1" 
+    "test": "node test/my_test.mjs" 
   },
   "author": "",
   "license": "ISC",

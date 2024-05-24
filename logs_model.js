@@ -14,7 +14,9 @@ const logsSchema = mongoose.Schema({
     error: {type: String, default: ''},
     message: {type: String, default: ''},
     signal: {type: String, default: ''},
-    timestamp: {type: String, default: new Date().getTime()},
+    promise: {type: String, default: ''},
+    reason: {type: String, default: ''},
+    timestamp: {type: Number, default: Date.now},
 });
 
 export default mongoose.model('Logs', logsSchema);

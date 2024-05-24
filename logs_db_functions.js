@@ -1,6 +1,7 @@
 import logsModel from './logs_model.js';
 
-export async function add(log) {
+
+export  function add(log) {
     const newLogs = new logsModel({
         method: log.method,
         url: log.url,
@@ -12,15 +13,19 @@ export async function add(log) {
         timestamp: log.timestamp,
         message: log.message,
         type: log.type,
+        signal: log.signal,
+        promise: log.promise,
+        reason: log.reason,
     });
-
-    try {
-        const result = await newLogs.save();
-        return result;
-    } catch (err) {
-        console.error(err);
-        throw err;
-    }
+    console.log('dans le add');
+    return newLogs.save()
+        .then(result => {
+            return result;
+        })
+        .catch(err => {
+            console.error(err);
+            throw err;
+        });
 }
 
 export async function getAll() {
